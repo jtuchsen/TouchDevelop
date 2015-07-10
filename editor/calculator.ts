@@ -3895,7 +3895,8 @@ module TDev
 
         private setupTopButtons()
         {
-            if (this.cursorPosition == 0 /*this.stmt.isPlaceholder()*/) {
+            var nodeType = this.stmt.nodeType();
+            if (this.cursorPosition == 0 && nodeType != "actionParameter" && nodeType != "recordField") {
                 this.setupTopPaging();
             } else {
                 this.calcTopButtons.setChildren([this.apiHelpDiv]);
